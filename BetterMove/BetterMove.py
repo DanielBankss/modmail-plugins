@@ -1,4 +1,5 @@
 from discord.ext import commands
+from discord.utils import get
 from core import checks
 import discord
 
@@ -21,7 +22,7 @@ class BetterMove(commands.Cog):
     @checks.thread_only()
     @commands.command()
     async def mc(self, ctx):        
-        category = ctx.guild.get_channel(self.category_ids["mc"])
+        category = get(ctx.guild.categories, id=self.category_ids["mc"])
         roleId = self.staff_role_ids["mcstaff"]
         
         if category is None or not isinstance(category, discord.CategoryChannel):
@@ -37,7 +38,7 @@ class BetterMove(commands.Cog):
     @checks.thread_only()
     @commands.command()
     async def asda(self, ctx):        
-        category = ctx.guild.get_channel(self.category_ids["asda"])
+        category = get(ctx.guild.categories, id=self.category_ids["asda"])
         roleId = self.staff_role_ids["admins"]
         
         if category is None or not isinstance(category, discord.CategoryChannel):
@@ -53,7 +54,7 @@ class BetterMove(commands.Cog):
     @checks.thread_only()    
     @commands.command()
     async def dmods(self, ctx):        
-        category = ctx.guild.get_channel(self.category_ids["dmods"])
+        category = get(ctx.guild.categories, id=self.category_ids["dmods"])
         roleId = self.staff_role_ids["dmods"]
         
         if category is None or not isinstance(category, discord.CategoryChannel):
