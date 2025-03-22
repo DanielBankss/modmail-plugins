@@ -22,7 +22,7 @@ class BetterMove(commands.Cog):
     @checks.thread_only()
     @commands.command()
     async def mc(self, ctx):        
-        category = discord.utils.get(ctx.guild.categories, id="1349813171459850293")
+        category = discord.utils.get(ctx.guild.categories, id=1349813171459850293)
         roleId = self.staff_role_ids["mcstaff"]
         
         if category is None or not isinstance(category, discord.CategoryChannel):
@@ -38,7 +38,7 @@ class BetterMove(commands.Cog):
     @checks.thread_only()
     @commands.command()
     async def asda(self, ctx):        
-        category = get(ctx.guild.categories, id="1299775139399078010")
+        category = get(ctx.guild.categories, id=1299775139399078010)
         roleId = self.staff_role_ids["admins"]
         
         try:
