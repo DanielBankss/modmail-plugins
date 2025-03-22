@@ -1,4 +1,5 @@
 from discord.ext import commands
+from core import checks
 import discord
 
 class BetterMove(commands.Cog):
@@ -10,6 +11,7 @@ class BetterMove(commands.Cog):
             "dmods": "1299798139473104988"
         }
 
+    @checks.thread_only()
     @commands.command()
     async def mc(self, ctx):        
         category = ctx.guild.get_channel(self.category_ids["mc"])
@@ -23,7 +25,8 @@ class BetterMove(commands.Cog):
             await ctx.send(f"Moved to {category.name}")
         except Exception as e:
             await ctx.send(f"An error occurred: {str(e)}")
-            
+    
+    @checks.thread_only()
     @commands.command()
     async def asda(self, ctx):        
         category = ctx.guild.get_channel(self.category_ids["asda"])
@@ -37,7 +40,8 @@ class BetterMove(commands.Cog):
             await ctx.send(f"Moved to {category.name}")
         except Exception as e:
             await ctx.send(f"An error occurred: {str(e)}")
-            
+        
+    @checks.thread_only()    
     @commands.command()
     async def dmods(self, ctx):        
         category = ctx.guild.get_channel(self.category_ids["dmods"])
