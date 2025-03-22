@@ -41,6 +41,8 @@ class BetterMove(commands.Cog):
         category = get(ctx.guild.categories, id=self.category_ids["asda"])
         roleId = self.staff_role_ids["admins"]
         
+        print(category)
+        
         if category is None or not isinstance(category, discord.CategoryChannel):
             await ctx.send("Invalid category ID, Contact Dann.")
             return
