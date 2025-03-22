@@ -22,6 +22,7 @@ class BetterMove(commands.Cog):
     @commands.command()
     async def mc(self, ctx):        
         category = ctx.guild.get_channel(self.category_ids["mc"])
+        roleId = self.staff_role_ids["mcstaff"]
         
         if category is None or not isinstance(category, discord.CategoryChannel):
             await ctx.send("Invalid category ID, Contact Dann.")
@@ -29,7 +30,7 @@ class BetterMove(commands.Cog):
         
         try:
             await ctx.channel.edit(category=category)
-            await ctx.send(f"<@&{self.staff_role_ids["mcstaff"]}>")
+            await ctx.send(f"<@&{roleId}>")
         except Exception as e:
             await ctx.send(f"An error occurred: {str(e)}")
     
@@ -37,6 +38,7 @@ class BetterMove(commands.Cog):
     @commands.command()
     async def asda(self, ctx):        
         category = ctx.guild.get_channel(self.category_ids["asda"])
+        roleId = self.staff_role_ids["admins"]
         
         if category is None or not isinstance(category, discord.CategoryChannel):
             await ctx.send("Invalid category ID, Contact Dann.")
@@ -44,7 +46,7 @@ class BetterMove(commands.Cog):
         
         try:
             await ctx.channel.edit(category=category)
-            await ctx.send(f"<@&{self.staff_role_ids["admins"]}>")
+            await ctx.send(f"<@&{roleId}>")
         except Exception as e:
             await ctx.send(f"An error occurred: {str(e)}")
         
@@ -52,6 +54,7 @@ class BetterMove(commands.Cog):
     @commands.command()
     async def dmods(self, ctx):        
         category = ctx.guild.get_channel(self.category_ids["dmods"])
+        roleId = self.staff_role_ids["dmods"]
         
         if category is None or not isinstance(category, discord.CategoryChannel):
             await ctx.send("Invalid category ID, Contact Dann.")
@@ -59,7 +62,7 @@ class BetterMove(commands.Cog):
         
         try:
             await ctx.channel.edit(category=category)
-            await ctx.send(f"<@&{self.staff_role_ids["dmods"]}>")
+            await ctx.send(f"<@&{roleId}>")
         except Exception as e:
             await ctx.send(f"An error occurred: {str(e)}")
             
