@@ -11,13 +11,36 @@ class BetterMove(commands.Cog):
         }
 
     @commands.command()
-    async def move(self, ctx, category:str):
-        if category not in self.category_ids:
-            await ctx.send(f"Invalid category. Valid categories are: {', '.join(self.category_ids.keys())}")
+    async def mc(self, ctx):        
+        category = ctx.guild.get_channel(self.category_ids["mc"])
+        
+        if category is None or not isinstance(category, discord.CategoryChannel):
+            await ctx.send("Invalid category ID, Contact Dann.")
             return
         
-        category_id = self.category_ids[category]
-        category = ctx.guild.get_channel(category_id)
+        try:
+            await ctx.channel.edit(category=category)
+            await ctx.send(f"Moved to {category.name}")
+        except Exception as e:
+            await ctx.send(f"An error occurred: {str(e)}")
+            
+    @commands.command()
+    async def asda(self, ctx):        
+        category = ctx.guild.get_channel(self.category_ids["asda"])
+        
+        if category is None or not isinstance(category, discord.CategoryChannel):
+            await ctx.send("Invalid category ID, Contact Dann.")
+            return
+        
+        try:
+            await ctx.channel.edit(category=category)
+            await ctx.send(f"Moved to {category.name}")
+        except Exception as e:
+            await ctx.send(f"An error occurred: {str(e)}")
+            
+    @commands.command()
+    async def dmods(self, ctx):        
+        category = ctx.guild.get_channel(self.category_ids["dmods"])
         
         if category is None or not isinstance(category, discord.CategoryChannel):
             await ctx.send("Invalid category ID, Contact Dann.")
