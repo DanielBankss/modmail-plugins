@@ -42,7 +42,7 @@ class BetterMove(commands.Cog):
         roleId = self.staff_role_ids["admins"]
         
         try:
-            await ctx.channel.edit(category=category)
+            await ctx.channel.edit(category=category, sync_permissions=True)
             # await ctx.send(f"<@&{roleId}>")
         except Exception as e:
             await ctx.send(f"An error occurred: {str(e)}")
