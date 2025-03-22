@@ -10,6 +10,13 @@ class BetterMove(commands.Cog):
             "mc": "1349813171459850293",
             "dmods": "1299798139473104988"
         }
+        self.staff_role_ids = {
+            "admins": "1299296154885951549",
+            "managers": "1299446515655249950",
+            "mcstaff": "1214942778002505749",
+            "dmods": "1214942755923427378"
+        }
+        
 
     @checks.thread_only()
     @commands.command()
@@ -22,7 +29,7 @@ class BetterMove(commands.Cog):
         
         try:
             await ctx.channel.edit(category=category)
-            await ctx.send(f"Moved to {category.name}")
+            await ctx.send(f"<@&{self.staff_role_ids["mcstaff"]}>")
         except Exception as e:
             await ctx.send(f"An error occurred: {str(e)}")
     
@@ -37,7 +44,7 @@ class BetterMove(commands.Cog):
         
         try:
             await ctx.channel.edit(category=category)
-            await ctx.send(f"Moved to {category.name}")
+            await ctx.send(f"<@&{self.staff_role_ids["admins"]}>")
         except Exception as e:
             await ctx.send(f"An error occurred: {str(e)}")
         
@@ -52,7 +59,7 @@ class BetterMove(commands.Cog):
         
         try:
             await ctx.channel.edit(category=category)
-            await ctx.send(f"Moved to {category.name}")
+            await ctx.send(f"<@&{self.staff_role_ids["dmods"]}>")
         except Exception as e:
             await ctx.send(f"An error occurred: {str(e)}")
             
