@@ -7,9 +7,9 @@ class BetterMove(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.category_ids = {
-            "asda": "1299775139399078010",
-            "mc": "1349813171459850293",
-            "dmods": "1299798139473104988"
+            "asda": 1299775139399078010,
+            "mc": 1349813171459850293,
+            "dmods": 1299798139473104988
         }
         self.staff_role_ids = {
             "admins": "1299296154885951549",
@@ -38,7 +38,7 @@ class BetterMove(commands.Cog):
     @checks.thread_only()
     @commands.command()
     async def asda(self, ctx):        
-        category = get(ctx.guild.categories, id=1299775139399078010)
+        category = get(ctx.guild.categories, id=self.category_ids["asda"])
         roleId = self.staff_role_ids["admins"]
         
         try:
